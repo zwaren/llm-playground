@@ -2,3 +2,6 @@ requests
 openai
 python-dotenv
 colorama
+transformers
+transformers[torch]
+transformers[tf-cpu]

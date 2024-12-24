@@ -1,6 +1,7 @@
 from colorama import init, Fore, Style
 
-from openai_playground import OpenAIChatCompletion
+from playground.llama import LlamaChatCompletion
+from playground.openai import OpenAIChatCompletion
 
 init()
 
@@ -8,14 +9,13 @@ init()
 def main():
     print(Fore.BLUE + "Welcome to the LLM Interaction Project! Chose the model you want to interact with:")
     print("1. GPT-4o Mini")
-    print("2. In the future, more models will be added here.")
+    print("2. Meta-Llama-3-8B")
     selected_model = input("Enter the model number: " + Style.RESET_ALL)
     
     if selected_model == "1":
         client = OpenAIChatCompletion(model_name='gpt-4o-mini')
     if selected_model == "2":
-        print("This model is not available yet.")
-        return
+        client = LlamaChatCompletion(model_name='meta-llama/Meta-Llama-3-8B')
     print(Fore.GREEN + "LLM Response" + Style.RESET_ALL + ": Hello there! How can I help you today? (Write 'exit' to quit the program)")
     while True:
         user_input = input(Fore.GREEN + "User" + Style.RESET_ALL + ": ")
