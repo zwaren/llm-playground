@@ -2,9 +2,9 @@ from dotenv import dotenv_values
 from openai import OpenAI
 
 
-class OpenAIChatCompletion:
-    def __init__(self, model_name: str = 'gpt-4o-mini'):
-        self.model_name = model_name
+class GPT4oMiniChatCompletion:
+    def __init__(self):
+        self.model_name = 'gpt-4o-mini'
         api_key = dotenv_values(".env")["OPENAI_API_KEY"]
         self.client = OpenAI(api_key=api_key)
 

@@ -1,7 +1,7 @@
 from colorama import init, Fore, Style
 
-from playground.llama import LlamaChatCompletion
-from playground.openai import OpenAIChatCompletion
+from playground.transformers import OpenSourceChatCompletion
+from playground.gpt_4o import GPT4oMiniChatCompletion
 
 init()
 
@@ -9,13 +9,14 @@ init()
 def main():
     print(Fore.BLUE + "Welcome to the LLM Interaction Project! Chose the model you want to interact with:")
     print("1. GPT-4o Mini")
-    print("2. Meta-Llama-3-8B")
+    print("2. EleutherAI/gpt-neo-1.3B")
+    print("3. To be done..")
     selected_model = input("Enter the model number: " + Style.RESET_ALL)
     
     if selected_model == "1":
-        client = OpenAIChatCompletion(model_name='gpt-4o-mini')
+        client = GPT4oMiniChatCompletion()
     if selected_model == "2":
-        client = LlamaChatCompletion(model_name='meta-llama/Meta-Llama-3-8B')
+        client = OpenSourceChatCompletion(model_name='EleutherAI/gpt-neo-1.3B')
     print(Fore.GREEN + "LLM Response" + Style.RESET_ALL + ": Hello there! How can I help you today? (Write 'exit' to quit the program)")
     while True:
         user_input = input(Fore.GREEN + "User" + Style.RESET_ALL + ": ")
